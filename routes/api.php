@@ -24,6 +24,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('/gift-card/all', [GiftCardController::class, 'all']);
     Route::post('/gift-card/create', [GiftCardController::class, 'create']);
     Route::post('/gift-card/update/{id}', [GiftCardController::class, 'update']);
+    Route::post('/gift-card/delete/{id}', [GiftCardController::class, 'delete']);
     Route::get('/gift-card/generateCode', [GiftCardController::class, 'generateCode']);
 
     Route::get('/status/all', [StatusController::class, 'all']);

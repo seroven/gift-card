@@ -52,4 +52,8 @@ class GiftCardController extends Controller
     {
         return ResponseFormat::format(200, $this->repository->update($id, $request->all()));
     }
+    public function delete($id)
+    {
+        return ResponseFormat::format(200, $this->repository->update($id, array("enable" => 0)));
+    }
 }

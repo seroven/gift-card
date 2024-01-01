@@ -21,7 +21,8 @@
                 currentPageReportTemplate="Página {currentPage} de {totalPages}">
                 <template #header>
                     <div class="flex flex-column md:flex-row justify-content-between">
-                        <Button icon="pi pi-plus" label="Nueva Gift Card" severity="success" @click="toggleNewGiftCardFormModal"/>
+                        <Button icon="pi pi-plus" label="Nueva Gift Card" severity="success"
+                            @click="toggleNewGiftCardFormModal" />
 
                         <span class="p-input-icon-left mt-2 xl:mt-0">
                             <i class="pi pi-search" />
@@ -69,10 +70,11 @@
                         </div>
                     </template>
                 </Column>
-                <Column header="" headerClass="w-3rem">
+                <Column header="" headerClass="w-3rem" bodyClass="w-5rem">
                     <template #body="{ data }" class="text-center">
-                        <div class="w-full flex justify-content-center">
-                            <Button icon="pi pi-eye" severity="info" @click="toggleDetailGiftCardFormModal(data)"/>
+                        <div class="w-full text-center">
+                            <Button icon="pi pi-eye" severity="info" @click="toggleDetailGiftCardFormModal(data)" />
+                            <Button icon="pi pi-trash" class="ml-2" severity="danger" @click="deleteGiftCard(data.id)" />
                         </div>
                     </template>
                 </Column>
@@ -84,11 +86,10 @@
             </DataTable>
         </div>
     </div>
-    <NewGiftCardForm :visible="showNewGiftCardForm" 
-    @onSaveUser="reloadGiftCards" @closeModal="toggleNewGiftCardFormModal"></NewGiftCardForm>
-    <DetailGiftCardForm :visible="showDetailGiftCardForm" :giftCardSelected="giftCardSelected"
-    @onSaveUser="reloadGiftCards" @closeModal="toggleDetailGiftCardFormModal"></DetailGiftCardForm>
-
+    <NewGiftCardForm :visible="showNewGiftCardForm" @onSaveUser="reloadGiftCards" @closeModal="toggleNewGiftCardFormModal">
+    </NewGiftCardForm>
+    <DetailGiftCardForm :visible="showDetailGiftCardForm" :giftCardSelected="giftCardSelected" @onSaveUser="reloadGiftCards"
+        @closeModal="toggleDetailGiftCardFormModal"></DetailGiftCardForm>
 </template>
 <script>
 import { TokenManagment } from '../../shared/classes/TokenManagment';
@@ -150,8 +151,8 @@ export default {
 
                 this.giftCards = response.data.map(d => {
                     return {
-                        ...d, 
-                        dateExpired: new Date(d.dateExpired), 
+                        ...d,
+                        dateExpired: new Date(d.dateExpired),
                         dateIssue: new Date(d.dateIssue)
                     }
                 });
@@ -173,6 +174,11 @@ export default {
                 return ''
             }
         },
+        deleteGiftCard(id) {
+            this.$axios.post('/api/gift-card/delete/' + id).then(response => {
+                this.reloadGiftCards();
+            })
+        },
         toggleNewGiftCardFormModal() {
             this.showNewGiftCardForm = !this.showNewGiftCardForm;
         },
@@ -180,7 +186,7 @@ export default {
             this.giftCardSelected = giftCard
             this.showDetailGiftCardForm = !this.showDetailGiftCardForm;
         },
-        reloadGiftCards(){
+        reloadGiftCards() {
             this.loadGiftCards();
             this.showDetailGiftCardForm = false;
             this.showNewGiftCardForm = false;
