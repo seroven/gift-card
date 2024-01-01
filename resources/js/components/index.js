@@ -25,7 +25,10 @@ import ConfirmPopup from 'primevue/confirmpopup';
 import SplitButton from 'primevue/splitbutton';
 import Tag from 'primevue/tag';
 import SelectButton from 'primevue/selectbutton';
+import Toolbar from 'primevue/toolbar';
+import InputNumber from 'primevue/inputnumber';
 
+import FormGroup from './FormGroup.vue';
 
 export default function addGlobalComponents(app) {
     app
@@ -56,4 +59,7 @@ export default function addGlobalComponents(app) {
         .component('SplitButton', SplitButton)
         .component('Tag', Tag)
         .component('SelectButton', SelectButton)
+        .component('Toolbar', Toolbar)
+        .component('InputNumber', InputNumber)
+        .component('FormGroup', FormGroup)
 }

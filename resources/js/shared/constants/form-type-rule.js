@@ -1,0 +1,6 @@
+export const FormTypeRule = {
+    REQUIRED: 'REQUIRED',
+    EMAIL: 'EMAIL',
+    ONLY_LETTERS: 'ONLY_LETTERS',
+    ONLY_NUMBERS: 'ONLY_NUMBERS'
+}

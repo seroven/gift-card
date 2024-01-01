@@ -7,6 +7,9 @@
                 <span class="font-bold text-lg">Title</span>
                 <InputText v-model="data.title" />
             </div>
+            <div class="w-full">
+                <Calendar v-model="date" />
+            </div>
             <div class="w-full mt-3">
                 <Button label="Generate" class="w-full" @click="generatePdf" />
             </div>
@@ -20,7 +23,8 @@ export default {
     data() {
         return {
             data: {
-                title: ""
+                title: "",
+                date: null,
             },
         };
     },

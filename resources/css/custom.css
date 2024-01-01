@@ -1,0 +1,59 @@
+
+/* Custom classes */
+.display-grid-important{
+  display: grid !important; 
+}
+
+.w-full-important{
+  width: 100% !important;
+}
+
+.display-grid-input-button{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 10px;
+  width: 100%;
+}
+
+.table-container-wrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.text-mn {
+  font-size: .65rem !important;
+}
+
+.text-mc {
+  font-size: .6rem !important;
+}
+
+.p-column-filter-buttonbar {
+  display: grid !important;
+  column-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.p-column-filter-buttonbar .p-button {
+  padding: 0.5rem 0.8rem;
+}
+
+.p-calendar input{
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.p-calendar button{
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.p-button.p-button-icon-only {
+  width: 2.5rem !important;
+  padding: 0.5rem 0 !important;
+}
+
+.p-button {
+  padding: 0.4rem 0.8rem !important;
+}
